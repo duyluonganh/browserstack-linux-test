@@ -16,4 +16,4 @@ jobs:
       run: 'docker pull katalonstudio/katalon'
 
     - name: Katalon Run
-      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon katalonc.sh -projectPath=/tmp/project -noSplash -retry=0 -testSuitePath="Test Suites/New Test Suite"  -apiKey= ${{ secrets.KATALON_API_KEY }}'
+      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon katalonc.sh -projectPath=/tmp/project -noSplash -retry=0 -testSuitePath="Test Suites/New Test Suite" -browserType=Remote  -apiKey= ${{ secrets.KATALON_API_KEY }}'
