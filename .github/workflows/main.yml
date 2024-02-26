@@ -1,0 +1,19 @@
+name: CI
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: Docker pull
+      run: 'docker pull katalonstudio/katalon'
+
+    - name: Katalon Run
+      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon katalonc.sh -projectPath=/tmp/project -noSplash -retry=0 -testSuitePath="Test Suites/New Test Suite"  -apiKey= ${{ secrets.KATALON_API_KEY }}'
