@@ -11,13 +11,9 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-
-    - name: Docker clean
-      run: 'docker rmi katalonstudio/katalon:latest'
-      continue-on-error: true
       
     - name: Docker pull
       run: 'docker pull katalonstudio/katalon:9.3.0'
 
     - name: Katalon Run
-      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon katalonc.sh -projectPath=/tmp/project -noSplash -retry=0 -testSuitePath="Test Suites/New Test Suite" -browserType=Remote  -apiKey= ${{ secrets.KATALON_API_KEY }}'
+      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon:9.3.0 katalonc.sh -projectPath=/tmp/project -noSplash -retry=0 -testSuitePath="Test Suites/New Test Suite" -browserType=Remote  -apiKey= ${{ secrets.KATALON_API_KEY }}'
