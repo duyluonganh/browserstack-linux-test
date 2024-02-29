@@ -14,6 +14,7 @@ jobs:
 
     - name: Docker clean
       run: 'docker rmi katalonstudio/katalon:latest'
+      continue-on-error: true
       
     - name: Docker pull
       run: 'docker pull katalonstudio/katalon:9.3.0'
