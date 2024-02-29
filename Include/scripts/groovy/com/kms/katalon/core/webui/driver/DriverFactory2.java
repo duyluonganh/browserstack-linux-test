@@ -107,7 +107,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.Route;
 
-public class DriverFactory {
+public class DriverFactory2 {
 
     private static final int DEFAULT_CONNECT_TIMEOUT_IN_SECONDS = 120;
 
@@ -124,7 +124,7 @@ public class DriverFactory {
     private static final String SMART_WAIT_ADDON_EDGE_CHROMIUM_RELATIVE_PATH = File.separator + "Edge Chromium"
             + File.separator + "Smart Wait";
 
-    private static final KeywordLogger logger = KeywordLogger.getInstance(DriverFactory.class);
+    private static final KeywordLogger logger = KeywordLogger.getInstance(DriverFactory2.class);
 
     private static final int USING_MARIONETTEE_VERSION = 47;
 
@@ -285,7 +285,7 @@ public class DriverFactory {
         try {
             SmartWaitWebDriver smartWaitWebDriver = new SmartWaitWebDriver(webDriver);
             smartWaitWebDriver.register(new KatalonSmartEventListener());
-            DriverFactory.changeWebDriverWithoutLog(smartWaitWebDriver);
+            DriverFactory2.changeWebDriverWithoutLog(smartWaitWebDriver);
         } catch (Exception e) {
             logger.logInfo(e.getMessage());
         }
@@ -629,9 +629,9 @@ public class DriverFactory {
     private static WebDriver createNewRemoteChromeDriver(DesiredCapabilities desireCapibilities)
             throws MalformedURLException, IOException, Exception {
         String chromeDebugHost = RunConfiguration.getDriverSystemProperty(WEB_UI_DRIVER_PROPERTY, DEBUG_HOST,
-                DriverFactory.DEFAULT_DEBUG_HOST);
+                DriverFactory2.DEFAULT_DEBUG_HOST);
         String chromeDebugPort = RunConfiguration.getDriverSystemProperty(WEB_UI_DRIVER_PROPERTY, DEBUG_PORT,
-                DriverFactory.DEFAULT_CHROME_DEBUG_PORT);
+                DriverFactory2.DEFAULT_CHROME_DEBUG_PORT);
         System.setProperty(CHROME_DRIVER_PATH_PROPERTY_KEY, getChromeDriverPath());
         desireCapibilities.merge(DesiredCapabilities.chrome());
         Map<String, Object> chromeOptions = new HashMap<String, Object>();
@@ -650,9 +650,9 @@ public class DriverFactory {
     private static WebDriver createNewRemoteFirefoxDriver(DesiredCapabilities desireCapibilities)
             throws MalformedURLException, Exception {
         String fireFoxDebugHost = RunConfiguration.getDriverSystemProperty(WEB_UI_DRIVER_PROPERTY, DEBUG_HOST,
-                DriverFactory.DEFAULT_DEBUG_HOST);
+                DriverFactory2.DEFAULT_DEBUG_HOST);
         String firefoxDebugPort = RunConfiguration.getDriverSystemProperty(WEB_UI_DRIVER_PROPERTY, DEBUG_PORT,
-                DriverFactory.DEFAULT_FIREFOX_DEBUG_PORT);
+                DriverFactory2.DEFAULT_FIREFOX_DEBUG_PORT);
         desireCapibilities.merge(DesiredCapabilities.firefox());
         URL firefoxDriverUrl = new URL("http", fireFoxDebugHost, Integer.parseInt(firefoxDebugPort), "/hub");
         RemoteWebDriver webDriver = new RemoteWebDriver(firefoxDriverUrl, desireCapibilities);
@@ -922,7 +922,7 @@ public class DriverFactory {
                         desiredCapabilities.setCapability(FirefoxDriver.PROFILE, firefoxProfile);
                         webDriver = createNewFirefoxDriver(desiredCapabilities);
                     } else if (options instanceof DesiredCapabilities desiredCapabilities) {
-                        System.setProperty("webdriver.gecko.driver", DriverFactory.getGeckoDriverPath());
+                        System.setProperty("webdriver.gecko.driver", DriverFactory2.getGeckoDriverPath());
                         setFirefoxBinaryForMac(desiredCapabilities);
                         webDriver = new CFirefoxDriver(GeckoDriverService.createDefaultService(), desiredCapabilities);
                     } else {
