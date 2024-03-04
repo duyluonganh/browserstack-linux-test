@@ -38,6 +38,21 @@
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/New Test Case (1)</testCaseId>
+      <testDataLink>
+         <combinationType>ONE</combinationType>
+         <id>1659014f-dd6a-41a4-bdb0-610c965227ac</id>
+         <iterationEntity>
+            <iterationType>ALL</iterationType>
+            <value></value>
+         </iterationEntity>
+         <testDataId>Data Files/New Test Data</testDataId>
+      </testDataLink>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId>1659014f-dd6a-41a4-bdb0-610c965227ac</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>demo</value>
+         <variableId>6a55664e-c200-429c-a246-2ea6f529238c</variableId>
+      </variableLink>
    </testCaseLink>
 </TestSuiteEntity>
