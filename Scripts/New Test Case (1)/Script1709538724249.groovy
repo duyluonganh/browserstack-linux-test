@@ -1,5 +1,9 @@
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.mobile.keyword.internal.MobileDriverFactory
+import com.kms.katalon.core.mobile.keyword.internal.MobileDriverFactory2
+
+import io.appium.java_client.AppiumDriver
 
 
 Mobile.comment('Story: Verify correct alarm message')
@@ -9,7 +13,7 @@ Mobile.comment('Given that user has started an application')
 'Get full directory\'s path of android application'
 //def appPath = PathUtil.relativeToAbsolutePath(GlobalVariable.G_AppPath, RunConfiguration.getProjectDir())
 def appPath = 'bs://sample.app'
-setDriverSystemProperty('Remote', 'remoteWebDriverUrl', 'https://duyluong2:K4ELxyeyRuTYJnduuxSR@hub-cloud.browserstack.com/wd/hub')
+setDriverSystemProperty('Remote', 'remoteWebDriverUrl', 'https://duyluong_jMx25Y:FiKovXrr6NqbPYCdHbfu@hub-cloud.browserstack.com/wd/hub')
 //RunConfiguration.setDriverPreferencesProperty('Remote', 'build', 'LocalBuild-' + System.getenv('USER'))
 RunConfiguration.setDriverPreferencesProperty('Remote', 'build', 'LocalBuild-' + 'zj-test')
 RunConfiguration.setDriverPreferencesProperty('Remote', 'platformName', 'Android')
@@ -17,7 +21,8 @@ RunConfiguration.setDriverPreferencesProperty('Remote', 'deviceName', 'Samsung G
 RunConfiguration.setDriverPreferencesProperty('Remote', 'platformVersion', '12.0')
 
 
-Mobile.startApplication(appPath, false)
+AppiumDriver driver = MobileDriverFactory2.startMobileDriver(appPath, false)
+MobileDriverFactory.setDriver(driver)
 
 Mobile.closeApplication()
 
