@@ -14,7 +14,7 @@
    <testCaseLink>
       <guid>0805c14f-d685-48b1-becd-087e5847e65c</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/New Test Case</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -32,5 +32,12 @@
          <value>demo</value>
          <variableId>be30ec10-134c-49c3-858e-b83bdfb74118</variableId>
       </variableLink>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>263666a1-27bc-44a5-91cc-c82283e823e4</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/New Test Case (1)</testCaseId>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
 </TestSuiteEntity>
